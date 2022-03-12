@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Styles from './Styles.module.css';
 
 const Tabs = (props) => {
     console.log(props);
@@ -9,13 +10,22 @@ const Tabs = (props) => {
             <div style={{display: "flex", marginTop:40, marginLeft: 500}}>
                 {
                     props.tabsItems.map((tab, i)=> {
+                        const selectedTabStyles = {
+                            padding:20, 
+                            marginRight:10, 
+                            border: "1px solid grey"
+                        }
+                        if (selectedIndex === i) {
+                            selectedTabStyles.backgroundColor = "black";
+                            selectedTabStyles.color = "white";
+                        }
                         return (
-                            <div key={i} onClick={(event) => {setSelectedIndex(i);}} style={{padding:20, marginRight:10, border: "1px solid grey"}}>{tab.label}</div>
+                            <div key={i} onClick={(event) => {setSelectedIndex(i);}} style={selectedTabStyles}>{tab.label}</div>
                         );
                     })
                 }
             </div>
-            <div style={{width: 600, height: 300, marginLeft: 300, marginTop: 40, border: "1px solid grey"}}>
+            <div className={Styles.display}>
                 <h2>{props.tabsItems[selectedIndex].content}</h2>
             </div>
         </div>    
