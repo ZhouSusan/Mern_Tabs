@@ -6,7 +6,7 @@ const Tabs = (props) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     return (
         <div>
-            <div style={{display: "flex", marginTop:40, marginLeft: 500}}>
+            <div className={Styles.tabs}>
                 {
                     props.tabItems.map((tab, i)=> {
                         const selectedTabStyles = {
