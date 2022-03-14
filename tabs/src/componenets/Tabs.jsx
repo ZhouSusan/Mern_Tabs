@@ -2,14 +2,13 @@ import React, {useState} from "react";
 import Styles from './Styles.module.css';
 
 const Tabs = (props) => {
-    console.log(props);
     //use selected index to keep track which tab is selected
-    const [selectedIndex, setSelectedIndex] = useState(1);
+    const [selectedIndex, setSelectedIndex] = useState(0);
     return (
         <div>
             <div style={{display: "flex", marginTop:40, marginLeft: 500}}>
                 {
-                    props.tabsItems.map((tab, i)=> {
+                    props.tabItems.map((tab, i)=> {
                         const selectedTabStyles = {
                             padding:20, 
                             marginRight:10, 
@@ -26,7 +25,7 @@ const Tabs = (props) => {
                 }
             </div>
             <div className={Styles.display}>
-                <h2>{props.tabsItems[selectedIndex].content}</h2>
+                <h2>{props.tabItems[selectedIndex].content}</h2>
             </div>
         </div>    
     );    
